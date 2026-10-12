@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8efe1">
+<meta name="description" content="CoffeeF'Day — a cozy café for good coffee, warm conversations and memories worth sharing.">
+<title>CoffeeF'Day | We Share Emotions With Coffee</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f8efe1;
+  --paper: #fffaf2;
+  --brown: #4b2e20;
+  --coffee: #75472f;
+  --orange: #c97948;
+  --muted: #827064;
+  --sage: #e4e7d5;
+  --line: #e6d7c5;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: "DM Sans", sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1180px; margin: auto; padding: 0 28px; }
+
+nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.brand span { color: var(--orange); }
+
+.nav-links { display: flex; gap: 28px; font-size: 14px; }
+
+.nav-links a:hover { color: var(--orange); }
+
+.pill {
+  display: inline-block;
+  padding: 13px 21px;
+  border-radius: 30px;
+  background: var(--brown);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.pill:hover { background: var(--orange); transform: translateY(-2px); }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 35px;
+  padding-top: 40px;
+  padding-bottom: 75px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+h1, h2, h3, blockquote {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.04;
+  letter-spacing: -2.8px;
+  margin: 23px 0;
+}
+
+h1 em { color: var(--orange); font-weight: 500; }
+
+.hero-copy > p {
+  color: var(--muted);
+  max-width: 470px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 27px; }
+
+.outline {
+  border: 1px solid var(--line);
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero-note { margin-top: 24px; font-size: 12px; color: var(--muted); }
+
+.hero-image {
+  position: relative;
+  min-height: 460px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 48% 48% 18px 18px;
+}
+
+.image-label {
+  position: absolute;
+  right: -10px;
+  bottom: 25px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 19px;
+  border-radius: 50%;
+  width: 115px;
+  height: 115px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  transform: rotate(8deg);
+}
+
+.ticker {
+  background: var(--brown);
+  color: var(--cream);
+  padding: 17px 10px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  letter-spacing: 1px;
+  word-spacing: 8px;
+}
+
+.section { padding: 85px 0; }
+
+.section-heading {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 42px;
+}
+
+.section-heading h2, .story h2, .offer h2, .visit h2 {
+  font-size: clamp(34px, 4.5vw, 49px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 14px 0;
+}
+
+.section-heading p, .story p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.menu-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  padding: 26px;
+  transition: transform .2s;
+}
+
+.menu-card:hover { transform: translateY(-4px); }
+
+.menu-icon {
+  font-size: 30px;
+  background: var(--sage);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.menu-card h3 { font-size: 23px; margin: 18px 0 13px; }
+
+.menu-list { list-style: none; padding: 0; margin: 0; }
+
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 13px;
+}
+
+.menu-list li:last-child { border-bottom: 0; }
+
+.price { white-space: nowrap; color: var(--coffee); font-weight: 700; }
+
+.story-wrap { background: var(--sage); }
+
+.story {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.story-image img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 180px 180px 16px 16px;
+}
+
+.story blockquote {
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 25px 0 0;
+  color: var(--coffee);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.offer { padding: 30px 0 70px; }
+
+.offer-box {
+  background: var(--brown);
+  color: var(--cream);
+  border-radius: 22px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.offer-box p, .visit p {
+  line-height: 1.8;
+  font-size: 14px;
+  opacity: .85;
+  max-width: 540px;
+}
+
+.offer-box .pill { background: var(--cream); color: var(--brown); white-space: nowrap; }
+
+.visit {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.visit-box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.visit-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 27px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .container { padding: 0 20px; }
+  nav { height: 72px; }
+  .nav-links { display: none; }
+  .brand { font-size: 21px; }
+  .hero { grid-template-columns: 1fr; padding-top: 35px; gap: 30px; }
+  h1 { font-size: 56px; }
+  .hero-image { min-height: 320px; }
+  .hero-image img { height: 350px; }
+  .image-label { right: 0; width: 95px; height: 95px; }
+  .section { padding: 60px 0; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; gap: 30px; padding-top: 60px; padding-bottom: 60px; }
+  .story-image img { height: 350px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid img { height: 270px; }
+  .offer-box, .visit-box { display: block; padding: 28px; }
+  .offer-box .pill { margin-top: 10px; }
+  .visit-links { margin-top: 20px; }
+  footer { padding: 25px 0; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <nav>
+    <a class="brand" href="#home">CoffeeF<span>'</span>Day ☕</a>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#gallery">The Café</a>
+      <a href="#visit">Find Us</a>
+    </div>
+    <a class="pill" href="#offer">30% OFF ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">A little coffee, a lot of feeling</div>
+    <h1>Your day.<br>Your people.<br><em>Your coffee.</em></h1>
+    <p>For the long talks, the quick breaks, the first dates, and the “one more coffee?” moments. Pull up a chair — there's room for you here.</p>
+    <div class="actions">
+      <a class="pill" href="#menu">Explore the Menu ↗</a>
+      <a class="outline" href="#story">Our Story</a>
+    </div>
+    <div class="hero-note">♡ We don't serve coffee, we share the emotions with coffee.</div>
+  </div>
+
+  <div class="hero-image">
+    <!-- Replace this URL with your own café hero photo -->
+    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85" alt="Warm café interior with coffee">
+    <div class="image-label">Your little<br>coffee escape ☕</div>
+  </div>
+</section>
+
+</div>
+
+<div class="ticker">
+  GOOD COFFEE ✳ GOOD PEOPLE ✳ SLOW MOMENTS ✳ HAPPY HEARTS
+</div>
+
+<div class="container">
+
+<section class="section" id="menu">
+  <div class="section-heading">
+    <div class="eyebrow">Something for every mood</div>
+    <h2>Find your usual.<br>Meet your new favourite.</h2>
+    <p>From your first morning sip to an evening treat, there's something for every kind of day.</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <article class="menu-card">
+      <div class="menu-icon">☕</div>
+      <h3>Coffee</h3>
+      <ul class="menu-list">
+        <li><span>Espresso</span><span class="price">$5</span></li>
+        <li><span>Americano</span><span class="price">$5</span></li>
+        <li><span>Latte</span><span class="price">$5</span></li>
+        <li><span>Cappuccino</span><span class="price">$5</span></li>
+        <li><span>Mocha</span><span class="price">$5</span></li>
+        <li><span>Caramel Latte</span><span class="price">$5</span></li>
+        <li><span>Vanilla Latte</span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+    <article class="menu-card">
+      <div class="menu-icon">🍵</div>
+      <h3>Matcha</h3>
+      <ul class="menu-list">
+        <li><span>Classic Matcha Latte</span><span class="price">$5</span></li>
+        <li><span>Iced Matcha Latte</span><span class="price">$5</span></li>
+        <li><span>Vanilla Matcha Latte</span><span class="price">$5</span></li>
+        <li><span>Strawberry Matcha Latte</span><span class="price">$5</span></li>
+        <li><span>Oat Matcha Latte</span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+    <article class="menu-card">
+      <div class="menu-icon">🫖</div>
+      <h3>Tea</h3>
+      <ul class="menu-list">
+        <li><span>Green Tea</span><span class="price">$5</span></li>
+        <li><span>Jasmine Tea</span><span class="price">$5</span></li>
+        <li><span>Earl Grey</span><span class="price">$5</span></li>
+        <li><span>Chamomile</span><span class="price">$5</span></li>
+        <li><span>Mint Tea</span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+    <article class="menu-card">
+      <div class="menu-icon">🥤</div>
+      <h3>Non-Coffee</h3>
+      <ul class="menu-list">
+        <li><span>Hot Chocolate</span><span class="price">$5</span></li>
+        <li><span>Iced Chocolate</span><span class="price">$5</span></li>
+        <li><span>Matcha Chocolate</span><span class="price">$5</span></li>
+        <li><span>Milkshake</span><span class="price">$5</span></li>
+        <li><span>Vanilla Milkshake</span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+    <article class="menu-card">
+      <div class="menu-icon">🧁</div>
+      <h3>Desserts</h3>
+      <ul class="menu-list">
+        <li><span>Matcha Brownie</span><span class="price">$5</span></li>
+        <li><span>Chocolate Muffin</span><span class="price">$5</span></li>
+        <li><span>Blueberry Cheesecake</span><span class="price">$5</span></li>
+        <li><span>Croissant</span><span class="price">$5</span></li>
+        <li><span>Banana Bread</span><span class="price">$5</span></li>
+      </ul>
+    </article>
+
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:12px;margin-top:25px">
+    Menu prices copied from your reference. Confirm the currency and prices before publishing.
+  </p>
+</section>
+
+</div>
+
+<section class="story-wrap" id="story">
+  <div class="container story">
+
+    <div class="story-image">
+      <!-- Replace this URL with your own café interior photo -->
+      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="Cosy café interior">
+    </div>
+
+    <div>
+      <div class="eyebrow">The thought behind every cup</div>
+      <h2>A world of coffee.<br>One feeling to share.</h2>
+
+      <p>I've tasted coffee in many places around the world, hoping to discover that one unforgettable cup — a flavour that felt just right. Every place had its own charm, yet I couldn't find the taste I had been searching for: something familiar, welcoming, and loved by people of different ages and different stories.</p>
+
+      <p>That search planted a thought in my heart: what if I created a coffee experience of my own? One that brings people together, makes everyday moments feel special, and gives every generation a flavour to fall in love with.</p>
+
+      <p>And so, CoffeeF'Day began with a simple dream — to create more than a café. A place for friends who lose track of time, families catching up, couples sharing a quiet moment, and anyone who needs a little pause from a busy day.</p>
+
+      <p>Because the best things in life are rarely just things. They're the people beside us, the memories we make, and the little rituals that make an ordinary day feel extraordinary.</p>
+
+      <blockquote>“We don't serve coffee, we share the emotions with coffee.”</blockquote>
+    </div>
+
+  </div>
+</section>
+
+<div class="container">
+
+<section class="section" id="gallery">
+  <div class="section-heading">
+    <div class="eyebrow">Come for the coffee, stay for the vibe</div>
+    <h2>Warm lights.<br>Slow moments.</h2>
+    <p>A cosy corner, a golden glow, and a seat for the conversations you don't want to end.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <!-- Replace these image URLs with your own uploaded photos -->
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=85" alt="Café seating and interior">
+    <img src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=800&q=85" alt="Warm café lighting">
+    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85" alt="Freshly made coffee">
+  </div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="offer-box">
+    <div>
+      <div class="eyebrow" style="color:#e8b18b">A little treat for your next visit</div>
+      <h2>Good plans.<br>Even better coffee.</h2>
+      <p>Prebook your visit to CoffeeF'Day through Dineout and enjoy an extra 30% discount, subject to the offer's availability and applicable terms.</p>
+    </div>
+    <a class="pill" href="https://www.dineout.co.in/" target="_blank" rel="noopener noreferrer">Prebook on Dineout ↗</a>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="visit-box">
+    <div>
+      <div class="eyebrow">Your table is waiting</div>
+      <h2>Let's make a memory<br>over coffee.</h2>
+      <p>Bring your favourite people, find your favourite drink, and make yourself at home. We'd love to see you.</p>
+      <p><strong>Location:</strong> 21.207575642997735, 81.31008443257642</p>
+    </div>
+
+    <div class="visit-links">
+      <a class="pill" href="https://www.google.com/maps?q=21.207575642997735,81.31008443257642" target="_blank" rel="noopener noreferrer">Get Directions ↗</a>
+      <a class="outline" href="https://www.instagram.com/coffeeoftheday24hr/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="brand" href="#home">CoffeeF<span>'</span>Day ☕</a>
+  <span>We don't serve coffee, we share the emotions with coffee.</span>
+  <a href="https://www.instagram.com/coffeeoftheday24hr/" target="_blank" rel="noopener noreferrer">Follow our journey ↗</a>
+  <span>© <span id="year"></span> CoffeeF'Day</span>
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
